@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+		<!-- Bootstrap CSS -->
+		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+		<!-- Custom CSS -->
+		<link rel="stylesheet" href="style/style.css">
+	</head>
+	<body>
+		<div id="loading" class="text-center" style="display:none;">
+			<img src="images/loading2.gif" alt="loading image">
+		</div>
+		<div class = "text-center " id="difficulty_select" style="font-size:2em;">
+			<div>
+				<input type="checkbox" value="Hard" id="hard"> Hard
+				<input type="checkbox" value="Medium" id="medium"> Medium
+				<input type="checkbox" value="Easy" id="easy"> Easy	
+			</div>
+			<div class="text-center" style="color:red; display:none;" id="difficulty_select_error">At least one difficulty must be selected</div>
+			<button class="btn btn-success btn-lg" id="start">START</button>
+		</div>
+		<div id="contents" class="container" >
+		</div>
+		<div class="text-center" id="buttons" style="display:none;">
+			<button id="submit" class="btn-lg btn-success">SUBMIT</button>
+			<button class="btn-lg btn-secondary" id="back">BACK</button>
+		</div>
+		
+		<script src="model/model_user.js"></script>
+		<script src="view/view.js"></script>
+		<script src="controller/controller.js"></script>
+		<script src="app.js"></script>
+	</body>
+
+</html>

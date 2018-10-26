@@ -1,0 +1,13 @@
+#alph_buttons, #target_word_div{
+	text-align:center;
+}
+ #button_group, #target_word{
+	margin:auto;
+	
+ }
+ h1{
+	text-align:center;
+ }
+ button{
+	 width:5%;
+ }

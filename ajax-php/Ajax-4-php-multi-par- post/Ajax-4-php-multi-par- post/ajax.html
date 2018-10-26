@@ -1,0 +1,27 @@
+<html>
+<head>
+</head>
+<body>
+    <h1>The XMLHttpRequest to add two numbers in server (using POST to send data)</h1>
+    <div id="demo">
+        <button type="button" onclick="myFunc()">Change Content</button>
+    </div>
+    <script>
+        function myFunc() {
+            var xhttp = new XMLHttpRequest();
+            let number1 = 5;
+            let number2 = 12;
+            xhttp.open("POST", "server.php",  true);
+            xhttp.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+            xhttp.send("number1=" + number1 + "&number2=" + number2);
+            xhttp.onreadystatechange = function () {
+                if (this.readyState == 4 && this.status == 200) {
+                    document.getElementById("demo").innerHTML =
+                        this.responseText;
+                }
+            };
+        }
+    </script>
+</body>
+
+</html>

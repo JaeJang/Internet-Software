@@ -1,0 +1,28 @@
+<html>
+<head>
+</head>
+<body>
+    <h1>The XMLHttpRequest to add two numbers in server</h1>
+    <div id="demo">
+        <button type="button" onclick="myFunc()">Change Content</button>
+    </div>
+    <script>
+        function myFunc() {
+            var xhttp = new XMLHttpRequest();
+            let number1 = 5;
+            let number2 = 12;
+            xhttp.open("GET", 
+                "server.php?number1=" + number1 + "&number2=" + number2, 
+                true);
+            xhttp.send();
+            xhttp.onreadystatechange = function () {
+                if (this.readyState == 4 && this.status == 200) {
+                    document.getElementById("demo").innerHTML =
+                        this.responseText;
+                }
+            };
+        }
+    </script>
+</body>
+
+</html>
