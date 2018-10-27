@@ -36,7 +36,14 @@
 		this.buttons[i] = tmpB;
 	}
 	document.querySelector('#start').addEventListener('click', ()=>{
-		this.controller.start("hi");
+		let name = document.querySelector('#name').value;
+		/* 
+		if(name === ""){
+			document.querySelector('#user_name_err').innerHTML = "Enter username please"
+			return;
+		}
+		 */
+		this.controller.start("name");
 	});
 	/*
 	document.querySelector('#reset').addEventListener('click', function(){

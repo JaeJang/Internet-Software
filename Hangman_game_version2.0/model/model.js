@@ -121,7 +121,57 @@ Model.prototype.start = function(name)
 	this.time = 0;
 	this.timer = setInterval(()=>{
 		this.view.updateTime(++this.time);
-		if(this.time == 5)
+		if(this.time == 2){
+			setTimeout(()=>{
+				this.test();		
+
+			},1000);
 			clearInterval(this.timer);
+		}
 	}, 1000);
+}
+
+Model.prototype.test = function(){
+	this.fade_interval = setInterval(()=>{
+		if(!document.querySelector('#fade_out_div').style.opacity)
+		{
+			this.view.enableElement('#loading_image');
+
+			document.querySelector('#fade_out_div').style.opacity = 1;
+			this.score_font_interval = setInterval(()=>{
+				let e = document.querySelector('#score');
+				let style = window.getComputedStyle(e, null).getPropertyValue("font-size");
+				let currentsize = parseFloat(style);
+				e.style.fontSize = (currentsize + 2) + 'px';
+				
+				if(this.fade_done)
+					clearInterval(this.score_font_interval);
+				
+			},20);
+		}
+		if(document.querySelector('#fade_out_div').style.opacity >0){
+			document.querySelector('#fade_out_div').style.opacity -= 0.1;
+			
+		}
+		else{
+			document.querySelector('#fade_out_div').style.display='none';
+			this.fade_done = true;
+			clearInterval(this.fade_interval);
+		}
+	}, 50);
+}
+
+Model.prototype.getRank = function()
+{
+	let http = XMLHttpRequest();
+	var model_instance = this;
+	http.open("GET","ranking.php?name=" + this.name + "&score=" + this.score);
+	http.send();
+	http.onreadystatechange = () =>{
+		if(this.readState == 4 && this.status == 200)
+		{
+			model_instance.view.disableElement('#loading_image');
+		}
+	};
+
 }

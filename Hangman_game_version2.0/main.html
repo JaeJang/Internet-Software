@@ -24,27 +24,34 @@
 		<div class="text-center">
 			<p id="start" class="btn btn-primary">START!</p>
 		</div>
+		<div id="user_name_err" class="text-center error_msg"></div>
 	</div>
 	<div id="contents" style="display:none;">
-		<div id="timer_div" class="container-fluid">
-			<h1 id = "timer" class="display-4">01:00</h1>
-		</div>
-		<div id="life_div" class="container-fluid">
-			<h1 id = "life" class="display-4">7 / 7</h1>
-		</div>
 		<div class="container-fluid">
 			<h1 id="score" class="display-5">score: 0</h1>
 		</div>
-		<div id="target_word_div" class="container-fluid">
-			<h1 id = "target_word" class="display-1">_ _ _ _</h1>
+		<div id="fade_out_div">
+			<div id="life_div" class="container-fluid">
+				<h1 id = "life" class="display-4">7 / 7</h1>
+			</div>
+			<div id="timer_div" class="container-fluid">
+				<h1 id = "timer" class="display-4">0</h1>
+			</div>
+			
+			<div id="target_word_div" class="container-fluid">
+				<h1 id = "target_word" class="display-1">_ _ _ _</h1>
+			</div>
+			<br><br><br>
+			<div id="def_div">
+				<h1 id="def" class="display-8"></h1>
+			</div>
+			<br><br><br>
+			<div id="alph_buttons" class="container-fluid">
+				<div id="button_group"></div>
+			</div>
 		</div>
-		<br><br><br>
-		<div id="def_div">
-			<h1 id="def" class="display-8"></h1>
-		</div>
-		<br><br><br>
-		<div id="alph_buttons" class="container-fluid">
-			<div id="button_group"></div>
+		<div class="text-center" id="loading_image">
+			<img src="images/loading.gif" alt="Loading image">
 		</div>
 	</div>
 	
