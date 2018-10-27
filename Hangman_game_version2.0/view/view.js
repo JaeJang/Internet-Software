@@ -50,6 +50,15 @@
 		}.bind(this));
 		*/
  }
+
+ View.prototype.resetButtons = function()
+ {
+	for(let i = 0; i < this.buttons.length; ++i)
+	{
+		this.buttons[i].className = BUTTON_STYLE_ENABLE;
+		this.buttons[i].disabled = false;
+	}
+ }
  	
  //Event listener for buttons.
  //It calls a function in controller which is clicked.
@@ -115,6 +124,12 @@
 	}
 
 }
+
+View.prototype.updateTime = function(time)
+{
+	document.querySelector('#timer').innerHTML = time;
+}
+
 View.prototype.disableElement = function(e)
 {
 	document.querySelector(e).style.display = 'none';

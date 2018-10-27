@@ -1,5 +1,7 @@
 var Model = function(view)
 {
+	const TIME_LIMIT = 60;
+
 	this.view = view;
 	
 	//target word
@@ -37,7 +39,7 @@ Model.prototype.check = function(alpha)
 	if (index === -1)
 	{
 		this.life--;
-		this.score--;
+		//this.score--;
 		this.view.updatelife_score(this.life,this.score, alpha);
 	}
 	//If matched
@@ -49,14 +51,14 @@ Model.prototype.check = function(alpha)
 				this.revealedWords[moreThanOne[index]] = alpha.toUpperCase();
 				--index;
 				this.correct++;
-				this.score++;
+				//this.score++;
 			}
 		}
 		//If there is one matched
 		else{
 			this.revealedWords[moreThanOne[index]] = alpha.toUpperCase();
 			this.correct++;
-			this.score++;
+			//this.score++;
 		}
 		
 		let string = '';
@@ -70,12 +72,17 @@ Model.prototype.check = function(alpha)
 		}
 		
 		this.view.updateWord(string, alpha);
-		if(this.correct === this.word.length)
-			this.view.end('congratulation! YOU WIN!');
+		if(this.correct === this.word.length){
+			//this.view.end('congratulation! YOU WIN!');
+			this.score++;
+			setTimeout(()=>{this.reset();},1000);
+			
+		}
 		this.view.updatelife_score(this.life,this.score, null);
 	}
 	if(this.life === 0){
-		this.view.end("YOU LOSE");
+		//this.view.end("YOU LOSE");
+		this.reset();
 	}
 }
 
@@ -103,10 +110,18 @@ Model.prototype.reset = function()
 	this.generateWord();
 	this.life = 7;
 	this.view.updatelife_score(this.life,this.score, null);
+	this.view.resetButtons();
 }
 
 Model.prototype.start = function(name)
 {
 	this.view.disableElement('#first_screen');
 	this.view.enableElement('#contents');
+	this.name = name;
+	this.time = 0;
+	this.timer = setInterval(()=>{
+		this.view.updateTime(++this.time);
+		if(this.time == 5)
+			clearInterval(this.timer);
+	}, 1000);
 }
