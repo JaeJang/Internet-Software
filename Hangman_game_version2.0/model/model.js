@@ -157,7 +157,7 @@ Model.prototype.test = function(){
 				if(this.fade_done)
 					clearInterval(this.score_font_interval);
 				
-			},20);
+			},10);
 		}
 		if(document.querySelector('#fade_out_div').style.opacity >0){
 			document.querySelector('#fade_out_div').style.opacity -= 0.1;
