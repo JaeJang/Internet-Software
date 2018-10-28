@@ -1,7 +1,7 @@
 const BUTTON_STYLE_ENABLE = 'btn-lg btn-primary';
 const BUTTON_STYLE_DISABLE_SUCESS = 'btn btn-success';
 const BUTTON_STYLE_DISABLE_FAIL = 'btn btn-danger';
-/*
+
 const WORD_LIST = ['list', 'wonder','world', 'double','place','fast','drive','read','length','size',
 					'electricity','tattoo'];  
 const DEF = ['a series of names or other items written or printed together in a meaningful grouping or sequence so as to constitute a record.', 
@@ -17,8 +17,10 @@ const DEF = ['a series of names or other items written or printed together in a 
 			'is the set of physical phenomena associated with the presence and motion of electric charge.',
 			'A form of body modification where a design is made by inserting ink'
 			];
-	*/		
+	
+/* 
 const WORD_LIST = ['electricity', 'tattoo'];
 const DEF = ['is the set of physical phenomena associated with the presence and motion of electric charge.',
 				'A form of body modification where a design is made by inserting ink'];
 
+ */

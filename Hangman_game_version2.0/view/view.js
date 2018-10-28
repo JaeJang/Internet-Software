@@ -37,13 +37,13 @@
 	}
 	document.querySelector('#start').addEventListener('click', ()=>{
 		let name = document.querySelector('#name').value;
-		/* 
+		
 		if(name === ""){
 			document.querySelector('#user_name_err').innerHTML = "Enter username please"
 			return;
 		}
-		 */
-		this.controller.start("name");
+		
+		this.controller.start(name);
 	});
 	/*
 	document.querySelector('#reset').addEventListener('click', function(){
@@ -135,6 +135,38 @@
 View.prototype.updateTime = function(time)
 {
 	document.querySelector('#timer').innerHTML = time;
+}
+
+View.prototype.printRank = function(ranks, name)
+{
+	let ranking_table_div = document.getElementById('ranking_table_div');
+	let table_body = document.getElementById('table_body');
+	for (let i = 0; i < ranks.length; ++i)
+	{
+		let u = ranks[i];
+		let tr = document.createElement('tr');
+		let th = document.createElement('th');
+		th.scope = "row";
+		th.innerHTML = u[0];
+		let td_name = document.createElement('td');
+		let td_score = document.createElement('td');
+		td_name.innerHTML = u[1];
+		td_score.innerHTML = u[2];
+
+		tr.appendChild(th);
+		tr.appendChild(td_name);
+		tr.appendChild(td_score);
+
+		table_body.appendChild(tr);
+
+		if(u[1] == name){
+			tr.style.fontWeight = 'bold';
+			tr.style.color = 'red';
+		}
+
+	}
+
+	ranking_table_div.style.display='block';
 }
 
 View.prototype.disableElement = function(e)
