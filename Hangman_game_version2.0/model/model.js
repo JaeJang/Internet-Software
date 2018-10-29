@@ -1,4 +1,4 @@
-const TIME_LIMIT = 60;
+
 
 var Model = function(view)
 {

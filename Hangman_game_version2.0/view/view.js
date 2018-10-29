@@ -18,6 +18,7 @@
  View.prototype.init = function()
  {
 	this.buttonGroup = document.querySelector('#button_group');
+	document.getElementById('you_have_sec').innerHTML = "You have " + TIME_LIMIT + " second to guess words.";
 	this.initButtons();
  }
  
@@ -44,6 +45,10 @@
 		}
 		
 		this.controller.start(name);
+	});
+
+	document.querySelector('#restart').addEventListener('click',()=>{
+		location.reload();
 	});
 	/*
 	document.querySelector('#reset').addEventListener('click', function(){

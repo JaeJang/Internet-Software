@@ -1,8 +1,8 @@
 <?php
 define('DB_HOST', 'localhost');
-define('DB_USER', 'id7646703_jae');
-define('DB_PASSWORD', 'ring1080');
-define('DB_DATABASE', 'id7646703_assignment1');
+define('DB_USER', 'root');
+define('DB_PASSWORD', '');
+define('DB_DATABASE', 'assignment1');
 
 $name = $_GET["name"];
 $score = $_GET["score"];
