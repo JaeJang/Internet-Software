@@ -123,6 +123,8 @@ Model.prototype.reset = function()
 	this.view.resetButtons();
 }
 
+//Start the game
+//Start timer
 Model.prototype.start = function(name)
 {
 	this.view.disableElement('#first_screen');
@@ -131,9 +133,10 @@ Model.prototype.start = function(name)
 	this.time = 0;
 	this.timer = setInterval(()=>{
 		this.view.updateTime(++this.time);
+		//if the time gets to the limit
 		if(this.time == TIME_LIMIT){
 			setTimeout(()=>{
-				this.test();		
+				this.endGame();		
 
 			},1000);
 			clearInterval(this.timer);
@@ -141,7 +144,10 @@ Model.prototype.start = function(name)
 	}, 1000);
 }
 
-Model.prototype.test = function(){
+//Remove all elements except score
+//Make score look bigger
+//Print rank
+Model.prototype.endGame = function(){
 	this.fade_interval = setInterval(()=>{
 		if(!document.querySelector('#fade_out_div').style.opacity)
 		{
@@ -172,6 +178,8 @@ Model.prototype.test = function(){
 	}, 50);
 }
 
+//Insert new score into database 
+//Get ranks from database
 Model.prototype.getRank = function()
 {
 	var model_instance = this;
@@ -183,7 +191,7 @@ Model.prototype.getRank = function()
 		{
 			model_instance.view.disableElement('#loading_image');
 			let rankings = JSON.parse(this.responseText);
-			model_instance.view.printRank(rankings, model_instance.name);
+			model_instance.view.printRank(rankings);
 		}
 	};
 

@@ -50,17 +50,6 @@
 	document.querySelector('#restart').addEventListener('click',()=>{
 		location.reload();
 	});
-	/*
-	document.querySelector('#reset').addEventListener('click', function(){
-		this.controller.reset();
-		for(let i = 0; i < this.buttons.length; ++i)
-		{
-			this.buttons[i].className = BUTTON_STYLE_ENABLE;
-			this.buttons[i].disabled = false;
-		}
-		
-		}.bind(this));
-		*/
  }
 
  View.prototype.resetButtons = function()
@@ -137,16 +126,18 @@
 
 }
 
+//Update time
 View.prototype.updateTime = function(time)
 {
 	document.querySelector('#timer').innerHTML = time;
 }
 
-View.prototype.printRank = function(ranks, name)
+//Print ranks based on passed ranks json that has been retrieved from database
+View.prototype.printRank = function(ranks)
 {
 	let ranking_table_div = document.getElementById('ranking_table_div');
 	let table_body = document.getElementById('table_body');
-	for (let i = 0; i < ranks.length; ++i)
+	for (let i = 1; i < Object.keys(ranks).length; ++i)
 	{
 		let u = ranks[i];
 		let tr = document.createElement('tr');
@@ -164,7 +155,7 @@ View.prototype.printRank = function(ranks, name)
 
 		table_body.appendChild(tr);
 
-		if(u[1] == name){
+		if(parseInt(u[3]) == ranks[0]){
 			tr.style.fontWeight = 'bold';
 			tr.style.color = 'red';
 		}
